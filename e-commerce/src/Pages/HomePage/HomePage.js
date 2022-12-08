@@ -1,13 +1,13 @@
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
-import Product from "../../Components/Product/Product"
+import Artist from "../../Components/Artist/Artist"
 
 function HomePage () {
 
     return(
         <div>
             <Header/>
-            <Product/>
+            <Artist/>
             <Footer/>
         </div>
     )

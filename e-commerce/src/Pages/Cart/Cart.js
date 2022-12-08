@@ -1,13 +1,14 @@
-import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
-import Product from "../../Components/Product/Product"
+import Footer from "../../Components/Footer/Footer"
+
+
 
 function Cart () {
 
     return(
         <div>
             <Header/>
-            <Product/>
+
             <Footer/>
         </div>
     )
