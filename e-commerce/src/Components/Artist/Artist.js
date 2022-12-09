@@ -7,11 +7,14 @@ import {
     Button
 } from '@chakra-ui/react';
 import { CiMusicNote1 } from "react-icons/ci";
+import { useNavigate } from "react-router-dom"
+import { goToArtistPage } from '../../Router/coordenato';
 
-const IMAGE =
-    'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
+function Artist (props) {
+    
 
-function Artist() {
+    const navigate = useNavigate()
+
     return (
         <Center py={12}>
             <Box
@@ -30,10 +33,12 @@ function Artist() {
                 pos={'relative'}
                 zIndex={1}
                 _hover={{
-                    boxShadow: '0px 1px 12px -5px black'
+                    transform: "scale(1.1)",
+                    transition: "all .3s ease"
                 }}
                 alignItems={'center'}
-                justifyContent={'space-evenly'}>
+                justifyContent={'space-evenly'}
+                onClick={()=> props.setAlbums([props.artista])}>
                 <Image
                     rounded={'lg'}
                     height={230}
@@ -43,7 +48,7 @@ function Artist() {
                     maxW={282}
                     minW={282}
                     objectFit={'cover'}
-                    src={IMAGE}
+                    src={props.artista.imagem}
                 />
                 <Heading
                     fontSize={'2xl'}
@@ -52,9 +57,15 @@ function Artist() {
                     textAlign={'center'}
                     m={1}
                 >
-                    A Banda Mais bonita da Cidade
+                    {props.artista.name}
                 </Heading>
-                <Button variant='solid' bg='darkgrey' color={'black'} leftIcon={<CiMusicNote1/>}>
+                <Button 
+                variant='solid' 
+                color={'black'} 
+                leftIcon={<CiMusicNote1/>}
+                bg={useColorModeValue('gray.100', 'gray.900')}
+                onClick={() => goToArtistPage(navigate)}
+                >
                     Ver Albuns
                 </Button>
             </Box>

@@ -1,0 +1,105 @@
+[
+    {
+        "id": "01",
+        "name": "Black Sabbath",
+        "imagem": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Black_Sabbath_%281970%29.png",
+        "albums": [
+            {
+                "idAlbum": "001",
+                "nameAlbum": "Black Sabbath",
+                "capa": "https://upload.wikimedia.org/wikipedia/pt/d/da/Black_Sabbath_debut_album.jpg",
+                "songs": [
+                    "Black Sabbath",
+                    "The Wizard",
+                    "Behind the Wall of Sleep",
+                    "N.I.B.",
+                    "Evil Woman",
+                    "Sleeping Village",
+                    "Warning"
+                ]
+            },
+            {
+                "idAlbum": "002",
+                "nameAlbum": "Paranoid",
+                "capa": "https://upload.wikimedia.org/wikipedia/pt/6/64/Black_Sabbath_-_Paranoid.jpg",
+                "songs": [
+                    "War Pigs",
+                    "Paranoid",
+                    "Planet Caravan",
+                    "Iron Man",
+                    "Eletric Funeral",
+                    "Hand of Doom",
+                    "Rat Salad",
+                    "Faires Waer Boots"
+                ]
+            },
+            {
+                "idAlbum": "003",
+                "nameAlbum": "Master of Reality",
+                "capa": "https://upload.wikimedia.org/wikipedia/pt/thumb/6/65/Black_Sabbath_Master_of_Reality.jpg/220px-Black_Sabbath_Master_of_Reality.jpg",
+                "songs": [
+                    "Sweet Leaf",
+                    "After Forever",
+                    "Embryo",
+                    "Childre of the Grave",
+                    "Orchid",
+                    "Lord of This World",
+                    "Solitude",
+                    "Into the Void"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "02",
+        "name": "Red Hot Chili Peppers",
+        "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Rhcp-live-pinkpop05.jpg/250px-Rhcp-live-pinkpop05.jpg",
+        "albums": [
+            {
+                "idAlbum": "001",
+                "nameAlbum": "Black Sabbath",
+                "capa": "https://upload.wikimedia.org/wikipedia/pt/7/78/Red_Hot_Chili_Peppers_-_Californication.jpg",
+                "songs": [
+                    "Around the World",
+                    "Parallel Universe",
+                    "Scar Tissue",
+                    "Otherside",
+                    "Get on Top",
+                    "Californication",
+                    "Easily",
+                    "Porcelain",
+                    "Emit Remmus",
+                    "I Like Dirt",
+                    "This Velvet Glove",
+                    "Savior",
+                    "Purple Stain",
+                    "Right on Time",
+                    "Road Trippin"
+                ]
+            },
+            {
+                "idAlbum": "002",
+                "nameAlbum": "By the Way",
+                "capa": "https://upload.wikimedia.org/wikipedia/pt/2/27/Red_Hot_Chili_Peppers_-_By_the_Way.jpg",
+                "songs": [
+                    "By the Way",
+                    "Universally Speaking",
+                    "This is the Place",
+                    "Dosed",
+                    "Don't Forget Me",
+                    "The Zphyr Song",
+                    "Can't Stop",
+                    "I Could Die for You",
+                    "MidNight",
+                    "Throw Away your Television",
+                    "Cabron",
+                    "Tear",
+                    "On Mercury",
+                    "Minor Thing",
+                    "Warm Tape",
+                    "Venice Queen"
+                ]
+            }
+        ]
+    }
+]

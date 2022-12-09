@@ -6,40 +6,86 @@ import {
   Heading,
   Image,
   Button,
-  Text
+  Text,
+  Flex,
+  ListItem,
+  OrderedList,
+  Divider,
+  ButtonGroup
 } from '@chakra-ui/react';
+import { CiShoppingCart } from "react-icons/ci"
 
-function Disco() {
+function Disco(props) {
+
+  const {
+    setCartData,
+    album
+  } = props
+
+  console.log(album.albums)
+
+  const discos = album.albums
+
+  function addToCart(disco) {
+
+  }
+
+
   return (
-    <Card
-      direction={{ base: 'column', sm: 'row' }}
-      overflow='hidden'
-      variant='outline'
+    <Flex
+      flexDir={'column'}
+      alignItems={'center'}
     >
-      <Image
-        objectFit='cover'
-        maxW={{ base: '100%', sm: '200px' }}
-        src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
-        alt='Caffe Latte'
-      />
-
-      <Stack>
-        <CardBody>
-          <Heading size='md'>
-            Nome do CD
-          </Heading>
-
-          <Text py='2'>
-            Faixas
-          </Text>
-        </CardBody>
-        <CardFooter>
-          <Button variant='solid' bg='darkgrey' color={'black'}>
-            Add ao Carrinho
-          </Button>
-        </CardFooter>
-      </Stack>
-    </Card>
+      <Text as={'b'} fontSize='4xl' margin={4} >{album.name}</Text>
+      <Flex
+        flexDir={'row'}
+        justifyContent={'space-evenly'}
+        flexWrap={"wrap"}
+      >
+        {discos.map((disco) => {
+          return (
+            <Card maxW='sm' key={disco.idAlbum}
+              _hover={{
+                transform: "scale(1.1)",
+                transition: "all .3s ease"
+              }}>
+              <CardBody>
+                <Image
+                  src={disco.capa}
+                  alt='Capa disco'
+                  borderRadius='lg'
+                  maxH={"50vh"}
+                  minH={"50vh"}
+                />
+                <Stack mt='6' spacing='3'>
+                  <Heading size='md'>{disco.nameAlbum}</Heading>
+                  <Text>
+                    <OrderedList>
+                      {disco.songs.map((song) => {
+                        return (
+                          <ListItem>{song}</ListItem>
+                        )
+                      })}
+                    </OrderedList>
+                  </Text>
+                  <Text color='blue.600' fontSize='2xl'>
+                    R$
+                  </Text>
+                </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+                <ButtonGroup spacing='2'>
+                  <Button variant='ghost' colorScheme='blue'>
+                    Add to cart
+                  </Button>
+                </ButtonGroup>
+              </CardFooter>
+            </Card>
+          )
+        })}
+      </Flex>
+    </Flex>
   );
 }
 
