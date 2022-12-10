@@ -6,7 +6,7 @@ const ArtistsPage = (props) => {
 
   const { cartData, setCartData, albums} = props
 
-  console.log(cartData)
+
   return (
     <div>
       <Header cartData={cartData}/>

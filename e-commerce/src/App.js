@@ -7,39 +7,43 @@ function App() {
 
   const [cartData, setCartData] = useState([])
   const [albums, setAlbums] = useState([])
-
-  console.log(cartData.length)
+  const [name, setName] = useState("")
 
   const total = cartData.reduce((acumulador, album) => Number(album.value) + acumulador, 0)
 
   useEffect(() => {
-    if(localStorage.length > 0){
-  
-      const trazerCart = localStorage.getItem("cartData")
-      if (trazerCart) {
-        const transformarCartData = JSON.parse(trazerCart)
-        setCartData(transformarCartData)
-      }
-
-      const trazerAlbums = localStorage.getItem("albums")
-      if (trazerAlbums) {
-        const transformarAlbums = JSON.parse(trazerAlbums)
-        setAlbums(transformarAlbums)
-      }
-      
-    }
-  }, [])
-
-  useEffect(() => {
-    if (cartData.length > 0 || albums.length > 0) {
+    if (cartData.length > 0 || albums.length > 0 || name) {
 
       const transformaStringCartdata = JSON.stringify(cartData)
       localStorage.setItem("cartData", transformaStringCartdata)
 
       const transformaStringAlbums = JSON.stringify(albums)
       localStorage.setItem("albums", transformaStringAlbums)
+
+      localStorage.setItem("name", name)
     }
-  }, [cartData, albums])
+  }, [cartData, albums, name])
+
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      const trazerCart = localStorage.getItem("cartData")
+      if(trazerCart){
+        const transformarCartData = JSON.parse(trazerCart)
+        setCartData(transformarCartData)
+      }
+
+      const trazerAlbums = localStorage.getItem("albums")
+      if(trazerAlbums){
+        const transformarAlbums = JSON.parse(trazerAlbums)
+        setAlbums(transformarAlbums)
+      }
+      
+      const trazerNome = localStorage.getItem("name")
+      if(trazerNome){
+        setName(trazerNome)
+      }
+    }
+  }, [])
 
   return (
     <ChakraProvider>
@@ -50,6 +54,8 @@ function App() {
         albums={albums}
         setAlbums={setAlbums}
         total={total}
+        name={name}
+        setName={setName}
       />
     </ChakraProvider>
   );

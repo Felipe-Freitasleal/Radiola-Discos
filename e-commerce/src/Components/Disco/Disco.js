@@ -20,26 +20,34 @@ function Disco(props) {
   const { cartData, setCartData, album } = props
   const discos = album.albums
 
+  console.log(cartData)
 
   function addToCart(disco) {
+    console.log(disco)
     const novoCartData = [...cartData]
-    const procurarDisco = novoCartData.find(item => item === disco)
 
-    if (procurarDisco) {
-      swal({
-        title: "Houve um problema!",
-        text: "Esse álbum já foi adicionado ao carrinho.",
-        icon: "error",
-      })
-    } else {
-      novoCartData.push(disco)
-      setCartData(novoCartData)
-      swal({
-        title: "Obrigado!",
-        text: "Seu álbum foi adicionado ao carrinho!",
-        icon: "success",
-      })
+    const acharItem = cartData.find(item => item.idAlbum === disco.idAlbum)
+    console.log(acharItem)
+
+    if (Array.isArray(cartData)) {
+      console.log(`cartData é um array!`)
+      if (!acharItem) {
+        novoCartData.push(disco)
+        setCartData(novoCartData)
+        swal({
+          title: "Obrigado!",
+          text: "Seu álbum foi adicionado ao carrinho!",
+          icon: "success",
+        })
+      } else {
+        swal({
+          title: "Houve um problema!",
+          text: "Esse álbum já foi adicionado ao carrinho.",
+          icon: "error",
+        })
+      }
     }
+
   }
 
 
@@ -56,10 +64,9 @@ function Disco(props) {
       >
         {discos.map((disco) => {
           return (
-            <Card maxW='sm' key={disco.idAlbum}
+            <Card maxW='350px' key={disco.idAlbum}
               _hover={{
-                transform: "scale(1.1)",
-                transition: "all .3s ease"
+                boxShadow: "0px 1px 8px"
               }}>
               <CardBody>
                 <Image
@@ -90,7 +97,7 @@ function Disco(props) {
                 <ButtonGroup spacing='2'>
                   <Button variant='ghost' colorScheme='blue'
                     onClick={() => addToCart(disco)}>
-                    Add to cart
+                    Adicionar ao carrinho
                   </Button>
                 </ButtonGroup>
               </CardFooter>

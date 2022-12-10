@@ -21,7 +21,6 @@ export const CartPage = (props) => {
         total
     } = props
 
-    console.log(cartData)
 
     return (
         <div>

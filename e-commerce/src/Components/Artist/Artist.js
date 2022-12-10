@@ -37,8 +37,7 @@ function Artist (props) {
                 pos={'relative'}
                 zIndex={1}
                 _hover={{
-                    transform: "scale(1.1)",
-                    transition: "all .3s ease"
+                    boxShadow:"0px 1px 8px"
                 }}
                 alignItems={'center'}
                 justifyContent={'space-evenly'}
