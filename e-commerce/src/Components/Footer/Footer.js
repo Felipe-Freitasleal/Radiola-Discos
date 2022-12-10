@@ -28,15 +28,15 @@ function Footer() {
 
                 <Stack direction={'row'} spacing={6}>
                     
-                    <Button label={'Twitter'} href={'#'}>
+                    <Button label={'Linkedin'} href={'https://www.linkedin.com/in/felipe-freitas-leal/'}>
                         <FaLinkedin />
                     </Button>
 
-                    <Button label={'YouTube'} href={'#'}>
+                    <Button label={'GitHub'} href={'https://github.com/Felipe-Freitasleal'}>
                         <FaGithub />
                     </Button>
 
-                    <Button label={'Instagram'} href={'#'}>
+                    <Button label={'Instagram'} href={'https://www.instagram.com/kali_grafia/'}>
                         <FaInstagram />
                     </Button>
 

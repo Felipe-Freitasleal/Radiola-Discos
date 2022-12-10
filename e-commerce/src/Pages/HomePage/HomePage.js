@@ -10,29 +10,36 @@ function HomePage(props) {
 
     const {
         setAlbums,
-        cartData
+        cartData,
+        name,
+        setName
     } = props
 
-    console.log(ArtistsList)
+
     return (
         <div>
-            <Header cartData={cartData}/>
-            <Nav />
+            <Header cartData={cartData} />
+            <Nav
+                name={name}
+                setName={setName}
+            />
             <Box
                 display={'flex'}
                 flexDir={'row'}
                 justifyContent={'space-evenly'}
                 flexWrap={'wrap'}
             >
-                {ArtistsList.map((artista) => {
-                    return (
-                        <Artist
-                            key={artista.id}
-                            artista={artista}
-                            setAlbums={setAlbums} />
-                    )
-                }
-                )}
+                {ArtistsList
+                    .filter((artista) => artista.name.toLocaleLowerCase().includes(name.toLocaleLowerCase()))
+                    .map((artista) => {
+                        return (
+                            <Artist
+                                key={artista.id}
+                                artista={artista}
+                                setAlbums={setAlbums} />
+                        )
+                    }
+                    )}
             </Box>
             <Footer />
         </div>

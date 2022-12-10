@@ -11,10 +11,10 @@ export const Router = (props) => {
         setCartData,
         albums,
         setAlbums,
-        total
+        total,
+        name,
+        setName
     } = props
-
-    console.log(cartData)
 
     return (
         <BrowserRouter>
@@ -24,6 +24,8 @@ export const Router = (props) => {
                 element={<HomePage 
                     cartData={cartData}
                     setAlbums={setAlbums}
+                    name={name}
+                    setName={setName}
                 />} />
                 <Route
                     path="/artista"

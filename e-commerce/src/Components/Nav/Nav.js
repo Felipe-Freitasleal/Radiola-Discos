@@ -6,7 +6,15 @@ import {
 } from "@chakra-ui/react";
 
 
-const Nav = () => {
+const Nav = (props) => {
+
+  const {
+    name,
+    setName
+  } = props
+
+
+
   return (
     <Box
       bg={useColorModeValue('gray.100', 'gray.900')}
@@ -23,6 +31,8 @@ const Nav = () => {
         placeholder='busque por artista'
         size='sm'
         maxW={'400px'}
+        value={name}
+        onChange={(event) => setName(event.target.value)}
       />
     </Box>
   )

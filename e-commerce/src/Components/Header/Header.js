@@ -15,7 +15,7 @@ function Header(props) {
     const { cartData } = props
     const navigate = useNavigate()
 
-    console.log(cartData.length)
+
     return (
         <Stack
             display={'flex'}
