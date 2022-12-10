@@ -4,16 +4,17 @@ import Disco from "../../Components/Disco/Disco"
 
 const ArtistsPage = (props) => {
 
-  const {setCartData, albums} = props
+  const { cartData, setCartData, albums} = props
 
-  console.log(albums)
+  console.log(cartData)
   return (
     <div>
-      <Header />
+      <Header cartData={cartData}/>
       {albums.map((album)=>{
         return (
           <Disco
-            key={album.albums.idAlbum}
+            key={album.id}
+            cartData={cartData}
             setCartData={setCartData}
             album={album}
           />

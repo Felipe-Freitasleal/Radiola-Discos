@@ -8,10 +8,14 @@ import {
 } from '@chakra-ui/react';
 import { CiMusicNote1 } from "react-icons/ci";
 import { useNavigate } from "react-router-dom"
-import { goToArtistPage } from '../../Router/coordenato';
+import { goToArtistPage } from '../../Routes/coordinato';
 
 function Artist (props) {
     
+    const {
+        artista,
+        setAlbums
+    } = props
 
     const navigate = useNavigate()
 
@@ -38,7 +42,7 @@ function Artist (props) {
                 }}
                 alignItems={'center'}
                 justifyContent={'space-evenly'}
-                onClick={()=> props.setAlbums([props.artista])}>
+                onClick={()=> setAlbums([artista])}>
                 <Image
                     rounded={'lg'}
                     height={230}
@@ -48,7 +52,7 @@ function Artist (props) {
                     maxW={282}
                     minW={282}
                     objectFit={'cover'}
-                    src={props.artista.imagem}
+                    src={artista.imagem}
                 />
                 <Heading
                     fontSize={'2xl'}
@@ -57,7 +61,7 @@ function Artist (props) {
                     textAlign={'center'}
                     m={1}
                 >
-                    {props.artista.name}
+                    {artista.name}
                 </Heading>
                 <Button 
                 variant='solid' 
@@ -66,7 +70,7 @@ function Artist (props) {
                 bg={useColorModeValue('gray.100', 'gray.900')}
                 onClick={() => goToArtistPage(navigate)}
                 >
-                    Ver Albuns
+                    Ver álbuns
                 </Button>
             </Box>
         </Center>

@@ -13,45 +13,46 @@ import CartItem from '../../Components/CartItem/CartItem'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
-export const Cart = (props) => {
+export const CartPage = (props) => {
 
-    const [
+    const {
         cartData,
-        setCartData
-    ] = props
+        setCartData,
+        total
+    } = props
+
+    console.log(cartData)
 
     return (
         <div>
-            <Header />
+            <Header cartData={cartData}/>
             <Box
                 maxW={{ base: '3xl', lg: '7xl' }}
                 mx="auto"
                 px={{ base: '4', md: '8', lg: '12' }}
                 py={{ base: '6', md: '8', lg: '12' }}
-            >
+                minH={"60vh"}>
                 <Stack
                     direction={{ base: 'column', lg: 'row' }}
                     align={{ lg: 'flex-start' }}
-                    spacing={{ base: '8', md: '16' }}
-                >
+                    spacing={{ base: '8', md: '16' }}>
                     <Stack spacing={{ base: '8', md: '10' }} flex="2">
                         <Heading fontSize="2xl" fontWeight="extrabold">
-                            Shopping Cart (3 items)
+                            Carrinho de compras:
                         </Heading>
-
                         <Stack spacing="6">
                             {cartData.map((produto) => (
-                                <CartItem key={produto.id} produto={produto}/>
+                                <CartItem
+                                    key={produto.idAlbum}
+                                    produto={produto}
+                                    cartData={cartData}
+                                    setCartData={setCartData} />
                             ))}
                         </Stack>
                     </Stack>
 
                     <Flex direction="column" align="center" flex="1">
-                        <CartOrderSummary />
-                        <HStack mt="6" fontWeight="semibold">
-                            <p>or</p>
-                            <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
-                        </HStack>
+                        <CartOrderSummary total={total}/>
                     </Flex>
                 </Stack>
             </Box>
