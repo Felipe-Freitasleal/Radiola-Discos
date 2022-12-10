@@ -1,13 +1,15 @@
 [
     {
-        "id": "01",
+        "id": "Black Sabbath",
         "name": "Black Sabbath",
         "imagem": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Black_Sabbath_%281970%29.png",
         "albums": [
             {
-                "idAlbum": "001",
+                "idAlbum": "Black SabbathBlack Sabbath",
                 "nameAlbum": "Black Sabbath",
                 "capa": "https://upload.wikimedia.org/wikipedia/pt/d/da/Black_Sabbath_debut_album.jpg",
+                "value": "25",
+                "author": "Black Sabbath",
                 "songs": [
                     "Black Sabbath",
                     "The Wizard",
@@ -19,9 +21,11 @@
                 ]
             },
             {
-                "idAlbum": "002",
+                "idAlbum": "ParanoidBlack Sabbath",
                 "nameAlbum": "Paranoid",
                 "capa": "https://upload.wikimedia.org/wikipedia/pt/6/64/Black_Sabbath_-_Paranoid.jpg",
+                "value": "28",
+                "author": "Black Sabbath",
                 "songs": [
                     "War Pigs",
                     "Paranoid",
@@ -34,9 +38,11 @@
                 ]
             },
             {
-                "idAlbum": "003",
+                "idAlbum": "Master of RealityBlack Sabbath",
                 "nameAlbum": "Master of Reality",
                 "capa": "https://upload.wikimedia.org/wikipedia/pt/thumb/6/65/Black_Sabbath_Master_of_Reality.jpg/220px-Black_Sabbath_Master_of_Reality.jpg",
+                "value": "30",
+                "author": "Black Sabbath",
                 "songs": [
                     "Sweet Leaf",
                     "After Forever",
@@ -51,14 +57,16 @@
         ]
     },
     {
-        "id": "02",
+        "id": "Red Hot Chili Peppers",
         "name": "Red Hot Chili Peppers",
         "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Rhcp-live-pinkpop05.jpg/250px-Rhcp-live-pinkpop05.jpg",
         "albums": [
             {
-                "idAlbum": "001",
-                "nameAlbum": "Black Sabbath",
+                "idAlbum": "Red Hot Chili PeppersCalifornication",
+                "nameAlbum": "Californication",
                 "capa": "https://upload.wikimedia.org/wikipedia/pt/7/78/Red_Hot_Chili_Peppers_-_Californication.jpg",
+                "value": "30",
+                "author": "Red Hot Chili Peppers",
                 "songs": [
                     "Around the World",
                     "Parallel Universe",
@@ -78,9 +86,11 @@
                 ]
             },
             {
-                "idAlbum": "002",
+                "idAlbum": "Red Hot Chili PeppersBy the Way",
                 "nameAlbum": "By the Way",
                 "capa": "https://upload.wikimedia.org/wikipedia/pt/2/27/Red_Hot_Chili_Peppers_-_By_the_Way.jpg",
+                "value": "28",
+                "author": "Red Hot Chili Peppers",
                 "songs": [
                     "By the Way",
                     "Universally Speaking",

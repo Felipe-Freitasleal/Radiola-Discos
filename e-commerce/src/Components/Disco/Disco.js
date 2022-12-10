@@ -12,22 +12,34 @@ import {
   OrderedList,
   Divider,
   ButtonGroup
-} from '@chakra-ui/react';
-import { CiShoppingCart } from "react-icons/ci"
+} from '@chakra-ui/react'
+import swal from 'sweetalert'
 
 function Disco(props) {
 
-  const {
-    setCartData,
-    album
-  } = props
-
-  console.log(album.albums)
-
+  const { cartData, setCartData, album } = props
   const discos = album.albums
 
-  function addToCart(disco) {
 
+  function addToCart(disco) {
+    const novoCartData = [...cartData]
+    const procurarDisco = novoCartData.find(item => item === disco)
+
+    if (procurarDisco) {
+      swal({
+        title: "Houve um problema!",
+        text: "Esse álbum já foi adicionado ao carrinho.",
+        icon: "error",
+      })
+    } else {
+      novoCartData.push(disco)
+      setCartData(novoCartData)
+      swal({
+        title: "Obrigado!",
+        text: "Seu álbum foi adicionado ao carrinho!",
+        icon: "success",
+      })
+    }
   }
 
 
@@ -36,7 +48,7 @@ function Disco(props) {
       flexDir={'column'}
       alignItems={'center'}
     >
-      <Text as={'b'} fontSize='4xl' margin={4} >{album.name}</Text>
+      <Text as={'b'} fontSize='3xl' margin={4} >{album.name}</Text>
       <Flex
         flexDir={'row'}
         justifyContent={'space-evenly'}
@@ -59,24 +71,25 @@ function Disco(props) {
                 />
                 <Stack mt='6' spacing='3'>
                   <Heading size='md'>{disco.nameAlbum}</Heading>
-                  <Text>
+                  <Stack>
                     <OrderedList>
                       {disco.songs.map((song) => {
                         return (
-                          <ListItem>{song}</ListItem>
+                          <ListItem key={song}>{song}</ListItem>
                         )
                       })}
                     </OrderedList>
-                  </Text>
+                  </Stack>
                   <Text color='blue.600' fontSize='2xl'>
-                    R$
+                    R$ {disco.value}
                   </Text>
                 </Stack>
               </CardBody>
               <Divider />
               <CardFooter>
                 <ButtonGroup spacing='2'>
-                  <Button variant='ghost' colorScheme='blue'>
+                  <Button variant='ghost' colorScheme='blue'
+                    onClick={() => addToCart(disco)}>
                     Add to cart
                   </Button>
                 </ButtonGroup>
@@ -85,7 +98,7 @@ function Disco(props) {
           )
         })}
       </Flex>
-    </Flex>
+    </Flex >
   );
 }
 

@@ -8,23 +8,31 @@ import { Box } from "@chakra-ui/react"
 
 function HomePage(props) {
 
- console.log(ArtistsList)
+    const {
+        setAlbums,
+        cartData
+    } = props
+
+    console.log(ArtistsList)
     return (
         <div>
-            <Header />
+            <Header cartData={cartData}/>
             <Nav />
             <Box
-            display={'flex'}
-            flexDir={'row'}
-            justifyContent={'space-evenly'}
-            flexWrap={'wrap'}
+                display={'flex'}
+                flexDir={'row'}
+                justifyContent={'space-evenly'}
+                flexWrap={'wrap'}
             >
-            {ArtistsList.map((artista) => {
-                return (
-                    <Artist key={artista.id} artista={artista} setAlbums={props.setAlbums}/>
-                )
-            }
-            )}
+                {ArtistsList.map((artista) => {
+                    return (
+                        <Artist
+                            key={artista.id}
+                            artista={artista}
+                            setAlbums={setAlbums} />
+                    )
+                }
+                )}
             </Box>
             <Footer />
         </div>
