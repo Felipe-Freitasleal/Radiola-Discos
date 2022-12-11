@@ -64,17 +64,28 @@ function Disco(props) {
       >
         {discos.map((disco) => {
           return (
-            <Card maxW='350px' key={disco.idAlbum}
+            <Card
+              maxW='350px'
+              minW='330px'
+              key={disco.idAlbum}
               _hover={{
                 boxShadow: "0px 1px 8px"
-              }}>
+              }}
+              m={2}
+            >
               <CardBody>
                 <Image
                   src={disco.capa}
                   alt='Capa disco'
                   borderRadius='lg'
-                  maxH={"50vh"}
-                  minH={"50vh"}
+                  rounded={'lg'}
+                  height={230}
+                  maxH={230}
+                  minH={50}
+                  width={282}
+                  maxW={282}
+                  minW={50}
+                  objectFit={'cover'}
                 />
                 <Stack mt='6' spacing='3'>
                   <Heading size='md'>{disco.nameAlbum}</Heading>

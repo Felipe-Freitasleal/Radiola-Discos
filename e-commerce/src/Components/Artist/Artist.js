@@ -20,16 +20,23 @@ function Artist (props) {
     const navigate = useNavigate()
 
     return (
-        <Center py={12}>
+        <Center py={12}
+        maxW={'330px'}
+        minW={'300px'}
+        maxH={'500px'}
+        minH={'450px'}>
             <Box
                 display={'flex'}
                 flexDir={'column'}
+                justifyContent={'space-evenly'}
+                alignItems={'center'}
                 role={'group'}
                 p={2}
+                m={1}
                 maxW={'330px'}
-                minW={'330px'}
+                minW={'300px'}
                 maxH={'500px'}
-                minH={'500px'}
+                minH={'450px'}
                 w={'full'}
                 bg={useColorModeValue('white', 'gray.800')}
                 boxShadow={'2xl'}
@@ -39,17 +46,15 @@ function Artist (props) {
                 _hover={{
                     boxShadow:"0px 1px 8px"
                 }}
-                alignItems={'center'}
-                justifyContent={'space-evenly'}
                 onClick={()=> setAlbums([artista])}>
                 <Image
                     rounded={'lg'}
                     height={230}
                     maxH={230}
-                    minH={230}
+                    minH={50}
                     width={282}
                     maxW={282}
-                    minW={282}
+                    minW={50}
                     objectFit={'cover'}
                     src={artista.imagem}
                 />
