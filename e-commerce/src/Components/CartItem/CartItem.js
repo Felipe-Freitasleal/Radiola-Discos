@@ -5,20 +5,17 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react"
-// 1. Import the utilities
-import { extendTheme } from '@chakra-ui/react'
+// import { extendTheme } from '@chakra-ui/react'
 
-// 2. Update the breakpoints as key-value pairs
-const breakpoints = {
-  sm: '320px',
-  md: '768px',
-  lg: '960px',
-  xl: '1200px',
-  '2xl': '1536px',
-}
+// const breakpoints = {
+//   sm: '320px',
+//   md: '768px',
+//   lg: '960px',
+//   xl: '1200px',
+//   '2xl': '1536px',
+// }
 
-// 3. Extend the theme
-const theme = extendTheme({ breakpoints })
+// const theme = extendTheme({ breakpoints })
 
 const CartItem = (props) => {
 
@@ -45,9 +42,18 @@ const CartItem = (props) => {
       overflow={"hidden"}
       height={"100%"}
       width={"100%"}>
-      <Img src={produto.capa}
-        maxH={"28vh"}
-        maxW={"32vw"} />
+      <Img
+        src={produto.capa}
+        alt='Capa disco'
+        borderRadius='lg'
+        rounded={'lg'}
+        objectFit={'cover'}
+        maxH={150}
+        minH={20}
+        w={200}
+        maxW={200}
+        minW={30}
+      />
       <Flex
         w={"100%"}
         p={4}
