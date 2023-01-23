@@ -4,6 +4,8 @@ import Artist from "../../Components/Artist/Artist"
 import Nav from "../../Components/Nav/Nav"
 import ArtistsList from "../../JSON-ArtistsList/ArtistsList.json"
 import { Box } from "@chakra-ui/react"
+import { useEffect } from "react"
+import axios from "axios"
 
 
 function HomePage(props) {
@@ -15,7 +17,19 @@ function HomePage(props) {
         setName
     } = props
 
-
+    
+    const getApiArtists = async () => {
+        try{
+            const response = await axios.get(`http://localhost:8080/artists`)
+            console.log(response)
+        } catch (error){
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        getApiArtists()
+    },[])
+    
     return (
         <div>
             <Header cartData={cartData} />
