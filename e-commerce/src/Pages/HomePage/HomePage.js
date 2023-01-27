@@ -21,7 +21,8 @@ function HomePage(props) {
     const getApiArtists = async () => {
         try{
             const response = await axios.get(`http://localhost:8080/artists`)
-            console.log(response)
+            const result = response.data
+            console.log(result)
         } catch (error){
             console.log(error)
         }
