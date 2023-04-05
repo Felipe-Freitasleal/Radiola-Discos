@@ -4,8 +4,8 @@ import Artist from "../../Components/Artist/Artist"
 import Nav from "../../Components/Nav/Nav"
 import ArtistsList from "../../JSON-ArtistsList/ArtistsList.json"
 import { Box } from "@chakra-ui/react"
-import { useEffect } from "react"
-import axios from "axios"
+// import { useEffect } from "react"
+// import axios from "axios"
 
 
 function HomePage(props) {
@@ -17,19 +17,21 @@ function HomePage(props) {
         setName
     } = props
 
-    
-    const getApiArtists = async () => {
-        try{
-            const response = await axios.get(`http://localhost:8080/artists`)
-            const result = response.data
-            console.log(result)
-        } catch (error){
-            console.log(error)
-        }
-    }
-    useEffect(()=>{
-        getApiArtists()
-    },[])
+
+    // REQUISIÇÃO FUTURA DE ALGUMA API PARA SUBSTITUIR O JSON MOCKADO
+    // const getApiArtists = async () => {
+    //     try{
+    //         const response = await axios.get(`http://localhost:8080/artists`)
+    //         const result = response.data
+    //         console.log(result)
+    //     } catch (error){
+    //         console.log(error)
+    //     }
+    // }
+
+    // useEffect(()=>{
+    //     getApiArtists()
+    // },[])
     
     return (
         <div>
