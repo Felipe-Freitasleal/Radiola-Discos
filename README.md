@@ -7,7 +7,6 @@ Loja virtual de discos desenvolvido com intuito didático para aprofundamento no
  - React
  - Chakra UI
  - Styled Components
- - Axios
  - React Routes
  - React Hooks
 
@@ -33,7 +32,7 @@ Página dos discos disponíveis do artista selecionado
 - **Cart**
 
 Página do carrinho de compras
-<img src="./e-commerce/assets/cart.png" alt="Meus pokémons"/>
+<img src="./e-commerce/assets/cart.png" alt="Cart Page"/>
 
 ## **Demonstração**
 
