@@ -14,6 +14,7 @@ function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
+      width={"100%"}
     >
       <Container
         as={Stack}
@@ -24,7 +25,7 @@ function Footer() {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Text>© 2022 Felipe Leal. All rights reserved</Text>
+        <Text>© 2023 Felipe Leal. All rights reserved</Text>
 
         <Stack direction={"row"} spacing={6}>
           <Link href="https://www.linkedin.com/in/felipe-freitas-leal/">
