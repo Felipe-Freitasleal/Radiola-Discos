@@ -10,12 +10,15 @@ import {
 import { CiShoppingCart, CiHome } from "react-icons/ci";
 import { goToCartPage, goToHomePage } from "../../Routes/coordinato";
 import { useLocation, useNavigate } from "react-router-dom";
-import imagemLogo from "../../assets/Picsart_23-11-15_11-33-26-846.png";
+import imagemLogo from "../../assets/Picsart_23-11-15_22-35-13-818.png";
+import { GlobalContext } from "../../contexts/GlobalContext";
+import { useContext } from "react";
 
-function Header(props) {
-  const { cartData, name, setName } = props;
+function Header() {
+  const context = useContext(GlobalContext);
+  const { name, setName, cartData } = context;
+
   const navigate = useNavigate();
-
   const location = useLocation();
 
   return (
@@ -29,6 +32,10 @@ function Header(props) {
       px={{ base: 4, lg: 12 }}
       py={2}
       gap={"1rem"}
+      position={"sticky"}
+      top={0}
+      left={0}
+      zIndex={1}
     >
       <Box
         display={"flex"}

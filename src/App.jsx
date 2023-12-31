@@ -1,67 +1,32 @@
 import { Router } from "./Routes/Router";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { GlobalContext } from "./contexts/GlobalContext";
 
 function App() {
   const [cartData, setCartData] = useState([]);
   const [albuns, setAlbuns] = useState([]);
   const [name, setName] = useState("");
 
+  // console.log("cartData: ", cartData);
+
   const total = cartData.reduce(
-    (acumulador, album) => Number(album.value) + acumulador,
+    (acumulador, album) => acumulador + album.preco,
     0
   );
+  // console.log("total: ", total);
 
-  // useEffect(() => {
-  //   if (cartData.length > 0 || albuns.length > 0 || name) {
-
-  //     const transformaStringCartdata = JSON.stringify(cartData)
-  //     localStorage.setItem("cartData", transformaStringCartdata)
-
-  //     const transformaStringAlbuns = JSON.stringify(albuns)
-  //     localStorage.setItem("albuns", transformaStringAlbuns)
-
-  //     localStorage.setItem("name", name)
-  //   }
-  // }, [cartData, albuns, name])
-
-  // useEffect(() => {
-  //   if (localStorage.length > 0) {
-  //     const trazerCart = localStorage.getItem("cartData")
-  //     if(trazerCart){
-  //       const transformarCartData = JSON.parse(trazerCart)
-  //       setCartData(transformarCartData)
-  //     }
-
-  //     const trazerAlbuns = localStorage.getItem("albuns")
-  //     if(trazerAlbuns){
-  //       const transformarAlbuns = JSON.parse(trazerAlbuns)
-  //       setAlbuns(transformarAlbuns)
-  //     }
-
-  //     const trazerNome = localStorage.getItem("name")
-  //     if(trazerNome){
-  //       setName(trazerNome)
-  //     }
-  //   }
-  // }, [])
-
-  useEffect(() => {
-    getAlbuns();
-  }, []);
-
-  const getAlbuns = async () => {
-    try {
-      const response = await axios.get(`http://localhost:8080/album`);
-      if (response.status !== 200) throw new Error(response.message);
-      console.log('response: ', response)
-      setAlbuns(response.data);
-    } catch (error) {
-      console.log(error);
-    }
+  const context = {
+    cartData,
+    setCartData,
+    albuns,
+    setAlbuns,
+    name,
+    setName,
+    total,
   };
 
   return (
+    <GlobalContext.Provider value={context}>
       <Router
         cartData={cartData}
         setCartData={setCartData}
@@ -71,6 +36,7 @@ function App() {
         name={name}
         setName={setName}
       />
+    </GlobalContext.Provider>
   );
 }
 
