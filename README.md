@@ -9,12 +9,13 @@ Loja virtual de discos desenvolvido com intuito didático para aprofundamento no
  - Styled Components
  - React Routes
  - React Hooks
+ - Sweet Alert
 
 ## **Funcionalidades do Projeto**
- - [x] Visualizar artistas disponíveis e acessar lista a lista de discos de algum artista
- - [x] Procura por artista por nome
+ - [x] Visualizar artistas disponíveis e acessar lista de discos
+ - [x] Procurar por artista por nome
  - [x] Acesso a lista de músicas de cada discos disponível
- - [x] Adicionar disco(s) escolhido(s) ao carrinho e simular compra(s) 
+ - [x] Adicionar disco(s) escolhido(s) ao carrinho e simular compra 
  - [x] Botões de acesso a Home Page e ao Carrinho
 
 
@@ -54,8 +55,6 @@ Página do carrinho de compras
 
  ## **Autor**
 
- <img style="height:250px" src="./e-commerce/assets/WhatsApp Image 2023-04-03 at 13.26.01.jpeg" alt="foto autor"/>
-
- Felipe Freitas Leal
+ Felipe Leal
  
  <a href="https://www.linkedin.com/in/felipe-freitas-leal/">Linkedin</a>
