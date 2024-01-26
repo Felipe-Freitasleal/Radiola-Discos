@@ -2,15 +2,26 @@ import { useContext, useEffect, useState } from "react";
 import { Album } from "../../Components/Album/Album";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import { Box, Container, Skeleton, Stack } from "@chakra-ui/react";
+import { Box, Container, Skeleton, Stack, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { GlobalContext } from "../../contexts/GlobalContext";
 
 function HomePage() {
   const context = useContext(GlobalContext);
   const { setAlbuns, albuns, setCartData, cartData, name } = context;
+  const toast = useToast();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const successToast = () => {
+    return toast({
+      title: "Disco adicionado ao carrinho com sucesso!",
+      status: "success",
+      isClosable: true,
+      duration: 4000,
+      position: "top",
+    });
+  };
 
   useEffect(() => {
     getAlbuns();
@@ -59,6 +70,7 @@ function HomePage() {
           xl: "700px",
           "2xl": "800px",
         }}
+        gap
       >
         {isLoading || albuns.length === 0 ? (
           <>
@@ -79,10 +91,11 @@ function HomePage() {
             )
             .map((album) => (
               <Album
-                key={album.id}
+                key={album.nome}
                 album={album}
                 setCartData={setCartData}
                 cartData={cartData}
+                successToast={successToast}
               />
             ))
         )}

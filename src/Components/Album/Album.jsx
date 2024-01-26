@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Box,
   Center,
-  useColorModeValue,
   Heading,
   Text,
   Stack,
@@ -20,10 +19,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-// const IMAGE =
-//   "https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80";
-
-export function Album({ cartData, setCartData, album }) {
+export function Album({ cartData, setCartData, album, successToast }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [musicsList, setMusicsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,11 +28,26 @@ export function Album({ cartData, setCartData, album }) {
     onOpen();
   };
 
-  const handleCart = () => {
+  const handleCart = (album) => {
     const newCartData = [...cartData];
-    newCartData.push(album);
-    setCartData(newCartData);
-    onClose();
+    let findAlbum = newCartData.find((item) => item.id === album.id);
+
+    if (findAlbum) {
+      findAlbum = { ...findAlbum, quantidade: findAlbum.quantidade + 1 };
+      const findIndex = newCartData.findIndex((item) => item.id === album.id);
+      newCartData.splice(findIndex, 1, findAlbum);
+      setCartData(newCartData);
+      onClose();
+    }
+
+    if (!findAlbum) {
+      const newAlbum = { ...album, quantidade: 1 };
+      newCartData.push(newAlbum);
+      setCartData(newCartData);
+      onClose();
+    }
+
+    successToast();
   };
 
   useEffect(() => {
@@ -49,9 +60,7 @@ export function Album({ cartData, setCartData, album }) {
     try {
       setIsLoading(true);
       const url = `http://localhost:8080/album/songs/${album.id}`;
-      console.log("url: ", url);
       const response = await axios.get(url);
-
       setMusicsList(response.data);
     } catch (error) {
       console.log(error);
@@ -64,53 +73,40 @@ export function Album({ cartData, setCartData, album }) {
     <Center py={12}>
       <Box
         role={"group"}
-        p={6}
-        maxW={"330px"}
-        w={"full"}
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow={"2xl"}
+        p={2}
+        width={"330px"}
+        height={"420px"}
         rounded={"lg"}
         pos={"relative"}
-        // zIndex={1}
+        boxShadow={"rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;"}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        _hover={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px",
+        }}
+        // background={"#F5F5F5"}
       >
-        <Box
+        {/* <Box rounded={"lg"} mt={-12} pos={"relative"} height={"230px"}> */}
+        <Image
           rounded={"lg"}
-          mt={-12}
-          pos={"relative"}
-          height={"230px"}
-          _after={{
-            transition: "all .3s ease",
-            content: '""',
-            w: "full",
-            h: "full",
-            pos: "absolute",
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${album.capa})`,
-            filter: "blur(15px)",
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: "blur(20px)",
-            },
-          }}
-        >
-          <Image
-            rounded={"lg"}
-            height={230}
-            width={282}
-            objectFit={"cover"}
-            src={`data:image/png;base64,${album.capa}`}
-            alt="#"
-          />
-        </Box>
-        <Stack pt={10} align={"center"}>
+          width={"14rem"}
+          height={"14rem"}
+          objectFit={"contain"}
+          src={`data:image/png;base64,${album.capa}`}
+          alt={`cover ${album.nome}`}
+        />
+        {/* </Box> */}
+        <Stack pt={5} align={"center"}>
           <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
             {album.artista}
           </Text>
           <Heading
-            fontSize={"2xl"}
+            fontSize={"md"}
             fontFamily={"body"}
             fontWeight={500}
             textAlign={"center"}
@@ -141,35 +137,60 @@ export function Album({ cartData, setCartData, album }) {
                 <Skeleton height="1rem" width="100%" />
               </Box>
             ) : (
-              <Box display="flex" flexDir="column" p="0.5rem" gap="1rem">
+              <Box display="flex" flexDir="column" gap={"0.5rem"}>
                 {musicsList.map((music) => (
-                  <Stack
-                    height="1rem"
+                  <Box
+                    key={music.id}
+                    height="2rem"
                     width="100%"
-                    display="flex"
-                    flexDir="row"
-                    justifyContent="space-between"
+                    // border={"solid blue 1px"}
+                    // style={{
+                    //   display: "grid",
+                    //   gridTemplateColumns: "88% 13%",
+                    //   gridTemplateRows: "2rem",
+                    // }}
+                    lineHeight={"1rem "}
                   >
-                    <Text height="1rem" width="85%">
+                    <Text
+                      style={{
+                        // gridRow: "1 / 2",
+                        // gridColumn: "1 / 2",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "start",
+                        width: "auto",
+                      }}
+                      _hover={{
+                        fontWeight: 600,
+                      }}
+                    >
                       {music.nome}
                     </Text>
-                    <Text height="1rem" width="15%">
+                    {/* <Text
+                      style={{
+                        gridRow: "1 / 2",
+                        gridColumn: "2 / 3",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                      }}
+                    >
                       {music.duracao}
-                    </Text>
-                  </Stack>
+                    </Text> */}
+                  </Box>
                 ))}
               </Box>
             )}
           </ModalBody>
-
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Cancelar
             </Button>
             <Button
               variant="ghost"
-              colorScheme="green"
-              onClick={() => handleCart()}
+              bg={"green.300"}
+              onClick={() => handleCart(album)}
             >
               Adicionar ao carrinho
             </Button>

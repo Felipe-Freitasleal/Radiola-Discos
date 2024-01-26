@@ -7,13 +7,10 @@ function App() {
   const [albuns, setAlbuns] = useState([]);
   const [name, setName] = useState("");
 
-  // console.log("cartData: ", cartData);
-
   const total = cartData.reduce(
-    (acumulador, album) => acumulador + album.preco,
+    (acumulador, album) => acumulador + album.preco * album.quantidade,
     0
   );
-  // console.log("total: ", total);
 
   const context = {
     cartData,
