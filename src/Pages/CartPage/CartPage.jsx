@@ -1,4 +1,14 @@
-import { Box, Flex, Heading, Stack, Text, useToast } from "@chakra-ui/react";
+import {
+  AbsoluteCenter,
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Stack,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import * as React from "react";
 import { CartOrderSummary } from "../../Components/CartOrderSummary/CartOrderSummary";
 import CartItem from "../../Components/CartItem/CartItem";
@@ -6,6 +16,7 @@ import Header from "../../Components/Header/Header";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import { useContext } from "react";
 import cartVazio from "../../assets/carrinho-vazio.png";
+import Footer from "../../Components/Footer/Footer.jsx";
 
 export const CartPage = () => {
   const context = useContext(GlobalContext);
@@ -23,36 +34,43 @@ export const CartPage = () => {
   };
 
   return (
-    <Box
-      width={"100%"}
-      display={"flex"}
+    <Flex
       flexDir={"column"}
+      alignItems={"center"}
       justifyContent={"space-between"}
-      gap={"1rem"}
     >
       <Header cartData={cartData} />
-      <Heading fontSize="2xl" fontWeight="extrabold" mx="auto">
-        Carrinho
-      </Heading>
       <Box
-        width={"auto"}
-        mx={{ base: "0.4rem", md: "2rem" }}
-        mb={{ base: "0.6rem", md: "0" }}
-        minH={"70vh"}
+        w={"100%"}
+        h={"4rem"}
+        fontSize="2xl"
+        fontWeight="extrabold"
         display={"flex"}
-        flexDirection={{ base: "column", md: "row" }}
-        gap={"1rem"}
-        // border={"solid red 1px"}
-        position={"relative"}
+        flexDir={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        Carrinho
+      </Box>
+
+      <Grid
+        w={{ base: "auto", md: "90vw" }}
+        minH={"50vh"}
+        gridTemplateColumns={`1fr ${{ base: "0px", md: "320px" }}`}
+        gridTemplateRows={"3fr 300px"}
+        alignItems={"start"}
+        gap={"2rem"}
+        padding={{ base: "0.5rem" }}
       >
         <Stack
-          spacing="6"
-          width={"100%"}
-          // border={"solid green 1px"}
-          height={"auto"}
-          position={"relative"}
-          py={{ base: 0, md: 4 }}
-          // overflowY={"scroll"}
+          gridRow={"1 / 2"}
+          gridColumn={{ base: "1 / 3", md: "1 / 2" }}
+          spacing="2"
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={`${cartData.length !== 0 ? "start" : "center"}`}
+          alignItems={"center"}
+          h={"100%"}
         >
           {cartData.length !== 0 ? (
             cartData.map((disco) => (
@@ -66,11 +84,10 @@ export const CartPage = () => {
             ))
           ) : (
             <Flex
-              height={"100%"}
-              width={"100%"}
               flexDirection={"column"}
               justifyContent={"center"}
               alignItems={"center"}
+              pt={4}
             >
               <Text textAlign={"center"} fontSize={"24px"} fontWeight={600}>
                 Carrinho vazio
@@ -85,17 +102,21 @@ export const CartPage = () => {
             </Flex>
           )}
         </Stack>
-        <Flex
+        <GridItem
+          gridRow={{ base: "2 / 3", md: "1 / 2" }}
+          gridColumn={{ base: "1 / 3", md: "2/ 3" }}
+          display={"flex"}
           direction="column"
           align="end"
-          flex="1"
-          // border={"solid pink 1px"}
-          pt={4}
+          // pt={4}
+          w={"auto"}
         >
           <CartOrderSummary total={total} />
-        </Flex>
+        </GridItem>
+      </Grid>
+      <Box w={"100%"}>
+        <Footer />
       </Box>
-      {/* <Footer /> */}
-    </Box>
+    </Flex>
   );
 };

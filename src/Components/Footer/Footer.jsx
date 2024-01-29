@@ -16,6 +16,7 @@ function Footer() {
       bg={"white"}
       color={useColorModeValue("gray.700", "gray.200")}
       width={"100%"}
+      // border={"solid red 1px"}
     >
       <Container
         as={Stack}

@@ -100,7 +100,7 @@ function HomePage() {
             ))
         )}
       </Container>
-      <Box width={"100%"} position={"relatine"} bottom={{ base: 0 }} left={0}>
+      <Box width={"100%"} position={"relative"} bottom={{ base: 0 }} left={0}>
         <Footer />
       </Box>
     </Box>
