@@ -12,13 +12,13 @@ export const CartOrderSummary = ({ total }) => {
     <Flex
       border={"1px solid lightgrey"}
       borderRadius={"8px"}
-      h={80}
-      w={{ base: "100%", md: 60 }}
+      width={{ base: "100%", md: "320px" }}
+      h={"300px"}
       p={4}
       flexDir={"column"}
       justifyContent={"space-between"}
     >
-      <Text fontSize="2xl" fontWeight="extrabold">
+      <Text fontSize="2xl" fontWeight="extrabold" textAlign={"start"}>
         Resumo do pedido.
       </Text>
       <Stack display={"flex"} flexDir={"row"} justifyContent={"space-between"}>
@@ -49,7 +49,7 @@ export const CartOrderSummary = ({ total }) => {
         <Text fontSize="md" color="grey">
           Cupom de desconto
         </Text>
-        <Link color={mode("blue.500", "blue.200")}>Add Cupom</Link>
+        <Link color={mode("blue.500", "blue.200")}>Adicionar Cupom</Link>
       </Stack>
       <Stack
         display={"flex"}

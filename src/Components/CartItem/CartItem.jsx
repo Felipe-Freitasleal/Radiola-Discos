@@ -71,7 +71,7 @@ const CartItem = ({ disco, cartData, setCartData, deleteAlbumToast }) => {
       border={"1px solid lightgrey"}
       borderRadius={"8px"}
       overflow={"hidden"}
-      height={"8rem"}
+      minHeight={"128px"}
       width={"100%"}
       background={"#F5F5F5"}
       alignItems={"center"}
@@ -152,16 +152,19 @@ const CartItem = ({ disco, cartData, setCartData, deleteAlbumToast }) => {
           <Text fontSize="xl" fontWeight={"bold"}>
             R${disco.preco}
           </Text>
-          <Button
+          <Box
             variant="ghost"
             _hover={{
               color: "red",
+              bg: "red.100",
             }}
             textAlign={"center"}
             onClick={() => setDeleteAlert(true)}
+            p={2}
+            borderRadius={"4px"}
           >
             <CiTrash width={"100%"} />
-          </Button>
+          </Box>
         </Flex>
       </Box>
 

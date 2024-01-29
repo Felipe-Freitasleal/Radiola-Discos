@@ -36,6 +36,7 @@ function Header() {
       top={0}
       left={0}
       zIndex={1}
+      w={"100%"}
     >
       <Box
         display={"flex"}
