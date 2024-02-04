@@ -12,11 +12,9 @@ import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 function Footer() {
   return (
     <Box
-      // bg={useColorModeValue("gray.50", "gray.900")}
-      bg={"white"}
+      bg={"gray.50"}
       color={useColorModeValue("gray.700", "gray.200")}
       width={"100%"}
-      // border={"solid red 1px"}
     >
       <Container
         as={Stack}
