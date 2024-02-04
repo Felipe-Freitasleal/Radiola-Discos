@@ -89,9 +89,7 @@ export function Album({ cartData, setCartData, album, successToast }) {
           boxShadow:
             "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px",
         }}
-        // background={"#F5F5F5"}
       >
-        {/* <Box rounded={"lg"} mt={-12} pos={"relative"} height={"230px"}> */}
         <Image
           rounded={"lg"}
           width={"14rem"}
@@ -102,19 +100,24 @@ export function Album({ cartData, setCartData, album, successToast }) {
         />
         {/* </Box> */}
         <Stack pt={5} align={"center"}>
-          <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
+          <Text
+            color={"gray.500"}
+            fontFamily={"inherit"}
+            fontSize={"sm"}
+            textTransform={"uppercase"}
+          >
             {album.artista}
           </Text>
           <Heading
             fontSize={"md"}
-            fontFamily={"body"}
-            fontWeight={500}
+            fontFamily={"inherit"}
+            fontWeight={700}
             textAlign={"center"}
           >
             {album.nome}
           </Heading>
           <Stack direction={"column"} align={"center"}>
-            <Text fontWeight={800} fontSize={"xl"}>
+            <Text fontWeight={600} fontSize={"xl"}>
               R${album.preco}
             </Text>
             <Button onClick={() => handleModal()}>Ver detalhes</Button>
@@ -143,23 +146,16 @@ export function Album({ cartData, setCartData, album, successToast }) {
                     key={music.id}
                     height="2rem"
                     width="100%"
-                    // border={"solid blue 1px"}
-                    // style={{
-                    //   display: "grid",
-                    //   gridTemplateColumns: "88% 13%",
-                    //   gridTemplateRows: "2rem",
-                    // }}
                     lineHeight={"1rem "}
                   >
                     <Text
                       style={{
-                        // gridRow: "1 / 2",
-                        // gridColumn: "1 / 2",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "start",
                         width: "auto",
+                        fontFamily: "inherit",
                       }}
                       _hover={{
                         fontWeight: 600,
@@ -167,17 +163,6 @@ export function Album({ cartData, setCartData, album, successToast }) {
                     >
                       {music.nome}
                     </Text>
-                    {/* <Text
-                      style={{
-                        gridRow: "1 / 2",
-                        gridColumn: "2 / 3",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {music.duracao}
-                    </Text> */}
                   </Box>
                 ))}
               </Box>

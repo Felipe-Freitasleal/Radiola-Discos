@@ -1,10 +1,8 @@
 import {
-  AbsoluteCenter,
   Box,
   Flex,
   Grid,
   GridItem,
-  Heading,
   Stack,
   Text,
   useToast,
@@ -12,8 +10,8 @@ import {
 import * as React from "react";
 import { CartOrderSummary } from "../../Components/CartOrderSummary/CartOrderSummary";
 import CartItem from "../../Components/CartItem/CartItem";
-import Header from "../../Components/Header/Header";
-import { GlobalContext } from "../../contexts/GlobalContext";
+import HeaderLg from "../../Components/Header/HeaderLg.jsx";
+import { GlobalContext } from "../../Contexts/GlobalContext.jsx";
 import { useContext } from "react";
 import cartVazio from "../../assets/carrinho-vazio.png";
 import Footer from "../../Components/Footer/Footer.jsx";
@@ -34,43 +32,46 @@ export const CartPage = () => {
   };
 
   return (
-    <Flex
-      flexDir={"column"}
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"space-between"}
+      minHeight={"100vh"}
     >
-      <Header cartData={cartData} />
+      <HeaderLg />
       <Box
         w={"100%"}
         h={"4rem"}
         fontSize="2xl"
-        fontWeight="extrabold"
+        fontWeight={600}
         display={"flex"}
         flexDir={"column"}
         justifyContent={"center"}
         alignItems={"center"}
+        alignSelf={"end"}
       >
         Carrinho
       </Box>
-
       <Grid
-        w={{ base: "auto", md: "90vw" }}
-        minH={"50vh"}
+        width={{ base: "95%", md: "90vw", lg: "85vw", xl: "80vw" }}
         gridTemplateColumns={`1fr ${{ base: "0px", md: "320px" }}`}
-        gridTemplateRows={"3fr 300px"}
+        gridTemplateRows={"1fr 0fr"}
         alignItems={"start"}
-        gap={"2rem"}
-        padding={{ base: "0.5rem" }}
+        columnGap={{ base: 0, md: "1rem" }}
+        rowGap={{ base: "1rem", md: 0 }}
+        flexGrow={1}
+        mb={"16px"}
       >
         <Stack
           gridRow={"1 / 2"}
-          gridColumn={{ base: "1 / 3", md: "1 / 2" }}
+          gridColumn={{ base: "1 / 3", md: "1 / 2", lg: "1 / 2", xl: "1 / 2" }}
           spacing="2"
           display={"flex"}
           flexDirection={"column"}
           justifyContent={`${cartData.length !== 0 ? "start" : "center"}`}
           alignItems={"center"}
-          h={"100%"}
+          height={"100%"}
         >
           {cartData.length !== 0 ? (
             cartData.map((disco) => (
@@ -87,7 +88,6 @@ export const CartPage = () => {
               flexDirection={"column"}
               justifyContent={"center"}
               alignItems={"center"}
-              pt={4}
             >
               <Text textAlign={"center"} fontSize={"24px"} fontWeight={600}>
                 Carrinho vazio
@@ -108,15 +108,17 @@ export const CartPage = () => {
           display={"flex"}
           direction="column"
           align="end"
-          // pt={4}
           w={"auto"}
+          position={"sticky"}
+          top={100}
+          left={0}
         >
           <CartOrderSummary total={total} />
         </GridItem>
       </Grid>
-      <Box w={"100%"}>
+      <Box width={"100%"}>
         <Footer />
       </Box>
-    </Flex>
+    </Box>
   );
 };

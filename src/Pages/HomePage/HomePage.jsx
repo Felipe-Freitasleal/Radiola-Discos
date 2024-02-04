@@ -1,17 +1,28 @@
 import { useContext, useEffect, useState } from "react";
 import { Album } from "../../Components/Album/Album";
 import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import { Box, Container, Skeleton, Stack, useToast } from "@chakra-ui/react";
+import HeaderLg from "../../Components/Header/HeaderLg.jsx";
+import HeaderSm from "../../Components/Header/HeaderSm.jsx";
+import {
+  Box,
+  Container,
+  Skeleton,
+  useMediaQuery,
+  useToast,
+} from "@chakra-ui/react";
 import axios from "axios";
-import { GlobalContext } from "../../contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext.jsx";
 
 function HomePage() {
   const context = useContext(GlobalContext);
-  const { setAlbuns, albuns, setCartData, cartData, name } = context;
+  const { setAlbums, albums, setCartData, cartData, name } = context;
   const toast = useToast();
 
+  const [isLargeThat1000] = useMediaQuery("(min-width: 1000px)");
+
   const [isLoading, setIsLoading] = useState(false);
+  const [gender, setGender] = useState("");
+  const [artist, setArtist] = useState("");
 
   const successToast = () => {
     return toast({
@@ -24,10 +35,10 @@ function HomePage() {
   };
 
   useEffect(() => {
-    getAlbuns();
+    getalbums();
   }, []);
 
-  const getAlbuns = async () => {
+  const getalbums = async () => {
     try {
       setIsLoading(true);
       const response = await axios.get(`http://localhost:8080/album`);
@@ -39,7 +50,7 @@ function HomePage() {
         response.data[i].capa = getCover;
       }
 
-      setAlbuns(response.data);
+      setAlbums(response.data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -54,26 +65,25 @@ function HomePage() {
   };
 
   return (
-    <Box maxHeight={"10%"}>
-      <Header />
+    <Box minHeight={"100vh"} display={"flex"} flexDir={"column"}>
+      {isLargeThat1000 ? (
+        <HeaderLg setGender={setGender} setArtist={setArtist} />
+      ) : (
+        <HeaderSm setGender={setGender} setArtist={setArtist} />
+      )}
+      {/* <HeaderLg setGender={setGender} setArtist={setArtist} /> */}
+
       <Container
-        as={Stack}
-        maxW={"6xl"}
+        maxW={"90%"}
         display={"flex"}
         flexDir={"row"}
         justifyContent={"space-evenly"}
+        alignContent={"start"}
         flexWrap={"wrap"}
-        minHeight={{
-          base: "400px",
-          sm: "430px",
-          lg: "550px",
-          xl: "700px",
-          "2xl": "800px",
-        }}
-        gap
+        flexGrow={1}
       >
-        {isLoading || albuns.length === 0 ? (
-          <>
+        {isLoading || albums.length === 0 ? (
+          <Box>
             <Skeleton height="300px" width="300px" mt="12px" />
             <Skeleton height="300px" width="300px" />
             <Skeleton height="300px" width="300px" />
@@ -83,11 +93,27 @@ function HomePage() {
             <Skeleton height="300px" width="300px" />
             <Skeleton height="300px" width="300px" />
             <Skeleton height="300px" width="300px" />
-          </>
+          </Box>
         ) : (
-          albuns
-            ?.filter((album) =>
-              album?.nome.toLocaleLowerCase().includes(name.toLocaleLowerCase())
+          albums
+            ?.filter(
+              (album) =>
+                album?.nome
+                  .toLocaleLowerCase()
+                  .includes(name.toLocaleLowerCase()) ||
+                album?.artista
+                  .toLocaleLowerCase()
+                  .includes(name.toLocaleLowerCase())
+            )
+            .filter((album) =>
+              album?.genero
+                .toLocaleLowerCase()
+                .includes(gender.toLocaleLowerCase())
+            )
+            .filter((album) =>
+              album?.artista
+                .toLocaleLowerCase()
+                .includes(artist.toLocaleLowerCase())
             )
             .map((album) => (
               <Album
@@ -100,7 +126,7 @@ function HomePage() {
             ))
         )}
       </Container>
-      <Box width={"100%"} position={"relative"} bottom={{ base: 0 }} left={0}>
+      <Box width={"100%"} alignSelf={"end"}>
         <Footer />
       </Box>
     </Box>

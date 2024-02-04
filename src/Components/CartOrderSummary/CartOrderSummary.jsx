@@ -12,14 +12,15 @@ export const CartOrderSummary = ({ total }) => {
     <Flex
       border={"1px solid lightgrey"}
       borderRadius={"8px"}
-      width={{ base: "100%", md: "320px" }}
+      width={{ base: "100%", md: "240px", lg: "320px" }}
       h={"300px"}
       p={4}
       flexDir={"column"}
       justifyContent={"space-between"}
+      marginBottom={"1rem"}
     >
-      <Text fontSize="2xl" fontWeight="extrabold" textAlign={"start"}>
-        Resumo do pedido.
+      <Text fontSize="2xl" fontWeight={600} textAlign={"start"}>
+        Resumo do pedido
       </Text>
       <Stack display={"flex"} flexDir={"row"} justifyContent={"space-between"}>
         <Text fontSize="md" color="grey">
@@ -58,7 +59,7 @@ export const CartOrderSummary = ({ total }) => {
         alignItems={"center"}
       >
         <Text fontSize="xl">Total:</Text>
-        <Text fontSize="xl" fontWeight={"bold"}>
+        <Text fontSize="xl" fontWeight={600}>
           R$ {total}
         </Text>
       </Stack>

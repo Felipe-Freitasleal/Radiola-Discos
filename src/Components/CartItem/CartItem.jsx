@@ -98,14 +98,14 @@ const CartItem = ({ disco, cartData, setCartData, deleteAlbumToast }) => {
         <Flex
           flexDir={"column"}
           justifyContent={"center"}
-          gridRow={{ base: "1 / 2", md: "1 / 2" }}
-          gridColumn={{ base: "1 / 3", md: "1 / 2" }}
+          gridRow={{ base: "1 / 2", md: "1 / 2", lg: "1 / 2" }}
+          gridColumn={{ base: "1 / 3", md: "1 / 3", lg: "1 / 2" }}
           justifySelf={"start"}
         >
-          <Text fontSize="sm" fontWeight="bold">
+          <Text fontSize={"sm"} fontWeight={700}>
             {disco.nome}
           </Text>
-          <Text fontSize="sm" color="grey">
+          <Text fontSize={"sm"} color="grey" textTransform={"uppercase"}>
             {disco.artista}
           </Text>
         </Flex>
@@ -113,9 +113,9 @@ const CartItem = ({ disco, cartData, setCartData, deleteAlbumToast }) => {
         <Flex
           flexDirection={"row"}
           alignItems={"center"}
-          gridRow={{ base: "2 / 3", md: "1 / 2" }}
-          gridColumn={{ base: "1 / 2", md: "2 / 3" }}
-          justifySelf={{ base: "start", md: "center" }}
+          gridRow={{ base: "2 / 3", md: "2 / 3", lg: "1 / 2" }}
+          gridColumn={{ base: "1 / 2", md: "1 / 2", lg: "2 / 3" }}
+          justifySelf={{ base: "start", md: "start", lg: "center" }}
         >
           <Button
             variant="ghost"
@@ -145,11 +145,11 @@ const CartItem = ({ disco, cartData, setCartData, deleteAlbumToast }) => {
         <Flex
           flexDir={"row"}
           alignItems={"center"}
-          gridRow={{ base: "2 / 3", md: "1 / 2" }}
-          gridColumn={{ base: "2 / 3", md: "3 / 4" }}
+          gridRow={{ base: "2 / 3", md: "2 / 3", lg: "1 / 2" }}
+          gridColumn={{ base: "2 / 3", md: "2 / 3", lg: "3 / 4" }}
           justifySelf={"end"}
         >
-          <Text fontSize="xl" fontWeight={"bold"}>
+          <Text fontSize="xl" fontWeight={600}>
             R${disco.preco}
           </Text>
           <Box

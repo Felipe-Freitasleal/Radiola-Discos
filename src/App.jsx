@@ -1,10 +1,10 @@
 import { Router } from "./Routes/Router";
 import { useState } from "react";
-import { GlobalContext } from "./contexts/GlobalContext";
+import { GlobalContext } from "./Contexts/GlobalContext";
 
 function App() {
   const [cartData, setCartData] = useState([]);
-  const [albuns, setAlbuns] = useState([]);
+  const [albums, setAlbums] = useState([]);
   const [name, setName] = useState("");
 
   const total = cartData.reduce(
@@ -15,8 +15,8 @@ function App() {
   const context = {
     cartData,
     setCartData,
-    albuns,
-    setAlbuns,
+    albums,
+    setAlbums,
     name,
     setName,
     total,
@@ -27,8 +27,8 @@ function App() {
       <Router
         cartData={cartData}
         setCartData={setCartData}
-        albuns={albuns}
-        setAlbuns={setAlbuns}
+        albums={albums}
+        setAlbums={setAlbums}
         total={total}
         name={name}
         setName={setName}
