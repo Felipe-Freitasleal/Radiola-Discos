@@ -10,14 +10,17 @@ import {
   MenuList,
   MenuItem,
   Tooltip,
+  InputGroup,
+  InputLeftAddon,
+  InputLeftElement,
 } from "@chakra-ui/react";
 import { CiShoppingCart, CiHome } from "react-icons/ci";
-import { goToCartPage, goToHomePage } from "../../Routes/Coordinato";
+import { goToCartPage, goToHomePage } from "../../Routes/coordinato.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 import imagemLogo from "../../assets/Picsart_23-11-15_22-35-13-818.png";
 import { GlobalContext } from "../../Contexts/GlobalContext";
 import { useContext, useState } from "react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 
 function Header({ setGender, setArtist }) {
   const context = useContext(GlobalContext);
@@ -79,25 +82,31 @@ function Header({ setGender, setArtist }) {
         width={"100%"}
       >
         {location.pathname === "/" && (
-          <Input
-            bg={"#373737"}
-            placeholder="busque por disco"
-            _placeholder={{
-              color: "grey",
-              fontFamily: "inherit",
-            }}
-            focusBorderColor={"none"}
-            color={"white"}
-            size="sm"
-            w={{
-              base: "100%",
-              lg: "21rem",
-            }}
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            border={"none"}
-            fontFamily={"inherit"}
-          />
+          <InputGroup>
+            <InputLeftElement mt={"-3px"} color={"grey"}>
+              <SearchIcon />
+            </InputLeftElement>
+            <Input
+              type={""}
+              bg={"#373737"}
+              placeholder="busque por disco"
+              _placeholder={{
+                color: "grey",
+                fontFamily: "inherit",
+              }}
+              focusBorderColor={"none"}
+              color={"white"}
+              size="sm"
+              w={{
+                base: "100%",
+                lg: "21rem",
+              }}
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              border={"none"}
+              fontFamily={"inherit"}
+            />
+          </InputGroup>
         )}
         <Box flexGrow={1}></Box>
         {location.pathname === "/" && (
@@ -120,12 +129,21 @@ function Header({ setGender, setArtist }) {
                 bg: "black",
                 textDecoration: "underline",
               }}
+              _focus={{
+                shadow: "none",
+              }}
+              _active={{
+                bg: "black",
+              }}
               fontFamily={"inherit"}
               fontWeight={400}
               lineHeight={"1.25rem"}
               textTransform={"uppercase"}
               onMouseEnter={() => setIsGenderMenuOpen(true)}
               onMouseLeave={() => setIsGenderMenuOpen(false)}
+              onClick={() => setIsGenderMenuOpen(!isGenderMenuOpen)}
+              minWidth={"5.5rem"}
+              textAlign={"end"}
             >
               Gênero
             </MenuButton>
@@ -212,12 +230,21 @@ function Header({ setGender, setArtist }) {
                 bg: "black",
                 textDecoration: "underline",
               }}
+              _focus={{
+                shadow: "none",
+              }}
+              _active={{
+                bg: "black",
+              }}
               fontFamily={"inherit"}
               fontWeight={400}
               lineHeight={"1.25rem"}
               textTransform={"uppercase"}
+              onClick={() => setIsArtistMenuOpen(!isArtistMenuOpen)}
               onMouseEnter={() => setIsArtistMenuOpen(true)}
               onMouseLeave={() => setIsArtistMenuOpen(false)}
+              minWidth={"5.5rem"}
+              textAlign={"end"}
             >
               Artista
             </MenuButton>
@@ -282,13 +309,15 @@ function Header({ setGender, setArtist }) {
             variant={"solid"}
             color={"white"}
             bg={"black"}
+            border={"solid white 1px"}
             _hover={{
               color: "lightgrey",
-              // mt: "-4px",
+              border: "solid grey 1px",
             }}
             fontFamily={"inherit"}
             fontWeight={400}
             lineHeight={"1.25rem"}
+            minWidth={"4rem"}
           >
             {location.pathname !== "/" ? (
               <CiHome />
