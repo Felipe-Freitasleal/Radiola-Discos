@@ -17,14 +17,16 @@ import {
   useDisclosure,
   DrawerCloseButton,
   DrawerHeader,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react";
 import { CiShoppingCart, CiHome } from "react-icons/ci";
-import { goToCartPage, goToHomePage } from "../../Routes/Coordinato";
+import { goToCartPage, goToHomePage } from "../../Routes/coordinato.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 import imagemLogo from "../../assets/Picsart_23-11-15_22-35-13-818.png";
 import { GlobalContext } from "../../Contexts/GlobalContext";
 import { useContext } from "react";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 
 function Header({ setGender, setArtist }) {
   const context = useContext(GlobalContext);
@@ -50,7 +52,7 @@ function Header({ setGender, setArtist }) {
       width={"100%"}
       height={"8rem"}
       p={{
-        base: "1rem",
+        base: "0.5rem",
         md: "1rem 3.5rem",
         lg: "1rem 4.5rem",
         xl: "1rem 7.5rem",
@@ -66,7 +68,7 @@ function Header({ setGender, setArtist }) {
           display={"flex"}
           flexDir={"row"}
           alignItems={"center"}
-          width={{ base: "8rem", md: "16rem" }}
+          width={"14rem"}
         >
           <Image width={"65px"} height={"65px"} alt="logo" src={imagemLogo} />
           <Text
@@ -74,14 +76,15 @@ function Header({ setGender, setArtist }) {
             textAlign={"center"}
             width={"100%"}
             fontFamily={"inherit"}
-            fontWeight={400}
+            fontWeight={300}
             lineHeight={"1.25rem"}
             textTransform={"uppercase"}
+            // border={"solid red 1px"}
           >
             Radiola Discos
           </Text>
         </Box>
-        <Box>
+        <Flex flexDirection={"row"}>
           <Button
             onClick={() => {
               if (location.pathname !== "/") goToHomePage(navigate);
@@ -96,12 +99,13 @@ function Header({ setGender, setArtist }) {
             fontFamily={"inherit"}
             fontWeight={400}
             lineHeight={"1.25rem"}
+            // border={"solid white 1px"}
           >
             {location.pathname !== "/" ? (
               <CiHome />
             ) : (
               <>
-                <CiShoppingCart /> <Box ml={"0.5rem"}>{cartData.length}</Box>
+                <CiShoppingCart /> <Box ml={"0.3rem"}>{cartData.length}</Box>
               </>
             )}
           </Button>
@@ -111,6 +115,8 @@ function Header({ setGender, setArtist }) {
                 variant={"ghost"}
                 _hover={{ opacity: "0.5" }}
                 onClick={onOpen}
+                // border={"solid white 1px"}
+                width={"1rem"}
               >
                 <HamburgerIcon />
               </Button>
@@ -320,7 +326,7 @@ function Header({ setGender, setArtist }) {
               </Drawer>
             </>
           )}
-        </Box>
+        </Flex>
       </Flex>
       {location.pathname === "/" && (
         <Box
@@ -331,22 +337,31 @@ function Header({ setGender, setArtist }) {
           justifyContent={"start"}
           width={"100%"}
         >
-          <Input
-            bg={"#373737"}
-            placeholder="busque por disco"
-            _placeholder={{
-              color: "grey",
-              fontFamily: "inherit",
-            }}
-            focusBorderColor={"none"}
-            color={"white"}
-            size="sm"
-            w={"100%"}
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            border={"none"}
-            fontFamily={"inherit"}
-          />
+          <InputGroup>
+            <InputLeftElement mt={"-3px"} color={"grey"}>
+              <SearchIcon />
+            </InputLeftElement>
+            <Input
+              type={""}
+              bg={"#373737"}
+              placeholder="busque por disco"
+              _placeholder={{
+                color: "grey",
+                fontFamily: "inherit",
+              }}
+              focusBorderColor={"none"}
+              color={"white"}
+              size="sm"
+              w={{
+                base: "100%",
+                lg: "21rem",
+              }}
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              border={"none"}
+              fontFamily={"inherit"}
+            />
+          </InputGroup>
         </Box>
       )}
     </SimpleGrid>
