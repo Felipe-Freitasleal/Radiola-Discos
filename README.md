@@ -1,4 +1,4 @@
-# **E-Commerce de Discos** ![Discos](./e-commerce/assets/vinil.png)
+# **E-Commerce Radiola Discos** ![Discos](./e-commerce/assets/vinil.png)
 
 ## **Back-End:**
 
