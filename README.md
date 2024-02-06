@@ -1,39 +1,47 @@
 # **E-Commerce de Discos** ![Discos](./e-commerce/assets/vinil.png)
 
-Loja virtual de discos desenvolvido com intuito didático para aprofundamento nos estudos e prática em front-end, principalmente no uso do React com JavaScript, e de bibliotecas de estilização como Chakra UI.
+## **Back-End:**
 
-## **Tecnologias utilizadaS**
+https://github.com/Felipe-Freitasleal/radiola-back
+
+## **Web-Scraping:**
+
+https://github.com/Felipe-Freitasleal/webscraping-musics
+
+## **Tecnologias utilizadas no Front**
 
  - React
  - Chakra UI
  - Styled Components
  - React Routes
  - React Hooks
- - Sweet Alert
+ - Swiper
+ - Axios
 
 ## **Funcionalidades do Projeto**
- - [x] Visualizar artistas disponíveis e acessar lista de discos
- - [x] Procurar por artista por nome
+ - [x] Visualizar discos disponíveis e acessar detalhes acerca
+ - [x] Procurar por disco/artista por nome ou gênero
  - [x] Acesso a lista de músicas de cada discos disponível
  - [x] Adicionar disco(s) escolhido(s) ao carrinho e simular compra 
  - [x] Botões de acesso a Home Page e ao Carrinho
+ - [x] Botões para filtragem por artista e gênero
 
 
 ## **Layout** 
 - **Home page**
 
 Esta é a Home Page
-<img src="./e-commerce/assets/homepage-radioa.png" alt="Home Page"/>
+<img src="" alt="Home Page"/>
 
 - **Discos**
 
 Página dos discos disponíveis do artista selecionado
-<img src="./e-commerce/assets/discos.png" alt="Details Page"/>
+<img src="" alt="Details Page"/>
 
 - **Cart**
 
 Página do carrinho de compras
-<img src="./e-commerce/assets/cart.png" alt="Cart Page"/>
+<img src="" alt="Cart Page"/>
 
 ## **Demonstração**
 
