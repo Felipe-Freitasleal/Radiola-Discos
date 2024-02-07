@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { GlobalContext } from "../../Contexts/GlobalContext.jsx";
+import Carousel from "../../Components/Carousel/Carousel.jsx";
 
 function HomePage() {
   const context = useContext(GlobalContext);
@@ -71,7 +72,8 @@ function HomePage() {
       ) : (
         <HeaderSm setGender={setGender} setArtist={setArtist} />
       )}
-      {/* <HeaderLg setGender={setGender} setArtist={setArtist} /> */}
+
+      {/* <Carousel /> */}
 
       <Container
         maxW={"90%"}
