@@ -31,11 +31,16 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 
 - **Home page**
 
-<div style="display: flex; flex-direction: row; gap: 8px;">
- <img src="./src/assets/radiola-home.png" alt="Home Page" width="70%" />
+ <img src="./src/assets/radiola-home.png" alt="Home Page"  />
 
- <img src="./src/assets/home-mobile.png" alt="Home Page mobile" width="25%" height="300px" />
-</div>
+ &nbsp;
+
+ Mobile:
+
+ <img src="./src/assets/home-mobile.png" alt="Home Page mobile" />
+
+ &nbsp;
+
 
 - **Carrinho de compras**
 
