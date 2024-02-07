@@ -32,7 +32,7 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 - **Home page**
 
 <div style="display: flex; flex-direction: row; gap: 8px;">
- <img src="./src/assets/radiola-home.png" alt="Home Page" width="75%" />
+ <img src="./src/assets/radiola-home.png" alt="Home Page" width="70%" />
 
  <img src="./src/assets/home-mobile.png" alt="Home Page mobile" width="25%" />
 </div>
@@ -40,7 +40,7 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 - **Carrinho de compras**
 
 <div style="display: flex; flex-direction: row; gap: 8px;">
-<img src="./src/assets/radiola-cart.png" alt="Cart Page" width="75%" />
+<img src="./src/assets/radiola-cart.png" alt="Cart Page" width="70%" />
 
 <img src="./src/assets/cart-mobile.png" alt="Cart Page mobile" width="25%" />
 </div>
