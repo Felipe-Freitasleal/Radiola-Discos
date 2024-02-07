@@ -1,4 +1,4 @@
-# **E-Commerce Radiola Discos** ![Discos](./e-commerce/assets/vinil.png)
+# **E-Commerce Radiola Discos** <img src="./src/assets/vinyl-record.png" alt="Disco logo" width="32px" />
 
 ## **Back-End:**
 
@@ -10,38 +10,40 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 
 ## **Tecnologias utilizadas no Front**
 
- - React
- - Chakra UI
- - Styled Components
- - React Routes
- - React Hooks
- - Swiper
- - Axios
+- React
+- Chakra UI
+- Styled Components
+- React Routes
+- React Hooks
+- Swiper
+- Axios
 
 ## **Funcionalidades do Projeto**
- - [x] Visualizar discos disponíveis e acessar detalhes acerca
- - [x] Procurar por disco/artista por nome ou gênero
- - [x] Acesso a lista de músicas de cada discos disponível
- - [x] Adicionar disco(s) escolhido(s) ao carrinho e simular compra 
- - [x] Botões de acesso a Home Page e ao Carrinho
- - [x] Botões para filtragem por artista e gênero
 
+- Visualizar discos disponíveis e acessar detalhes acerca
+- Procurar por disco/artista por nome ou gênero
+- Acesso a lista de músicas de cada discos disponível
+- Adicionar disco(s) escolhido(s) ao carrinho e simular compra
+- Botões de acesso a Home Page e ao Carrinho
+- Botões para filtragem por artista e gênero
 
-## **Layout** 
+## **Layout**
+
 - **Home page**
 
-Esta é a Home Page
-<img src="" alt="Home Page"/>
+<div style="display: flex; flex-direction: row; gap: 8px;">
+ <img src="./src/assets/radiola-home.png" alt="Home Page" width="75%" />
 
-- **Discos**
+ <img src="./src/assets/home-mobile.png" alt="Home Page mobile" width="25%" />
+</div>
 
-Página dos discos disponíveis do artista selecionado
-<img src="" alt="Details Page"/>
+- **Carrinho de compras**
 
-- **Cart**
+<div style="display: flex; flex-direction: row; gap: 8px;">
+<img src="./src/assets/radiola-cart.png" alt="Cart Page" width="75%" />
 
-Página do carrinho de compras
-<img src="" alt="Cart Page"/>
+<img src="./src/assets/cart-mobile.png" alt="Cart Page mobile" width="25%" />
+</div>
 
 ## **Demonstração**
 
@@ -61,8 +63,8 @@ Página do carrinho de compras
  $ npm run start
 ```
 
- ## **Autor**
+## **Autor**
 
- Felipe Leal
- 
- <a href="https://www.linkedin.com/in/felipe-freitas-leal/">Linkedin</a>
+Felipe Leal
+
+<a href="https://www.linkedin.com/in/felipe-freitas-leal/">Linkedin</a>
