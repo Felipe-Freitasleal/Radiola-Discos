@@ -38,7 +38,7 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 - **Carrinho de compras**
 <img src="./src/assets/radiola-cart.png" alt="Cart Page" />
 Mobile:
-<img src="./src/assets/cart-mobile.png" alt="Cart Page mobile" />
+<img src="" alt="Cart Page mobile" />
 &nbsp;
 
 ## **Demonstração**
