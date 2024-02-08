@@ -31,16 +31,10 @@ https://github.com/Felipe-Freitasleal/webscraping-musics
 
 - **Home page**
   <img src="./src/assets/radiola-home.png" alt="Home Page"  />
-  Mobile:
-  &nbsp;
-  <img src="./src/assets/home-mobile.png" alt="Home Page mobile" />
   &nbsp;
 
 - **Carrinho de compras**
   <img src="./src/assets/radiola-cart.png" alt="Cart Page" />
-  Mobile:
-  &nbsp;'
-  <img src="./src/assets/cart-mobile.png" alt="Cart Page mobile" />
   &nbsp;
 
 ## **Demonstração**
