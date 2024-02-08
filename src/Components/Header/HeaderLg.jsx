@@ -58,17 +58,19 @@ function Header({ setGender, setArtist }) {
         display={"flex"}
         flexDir={"row"}
         alignItems={"center"}
-        width={"16rem"}
+        // width={"14rem"}
+        // border={"solid red 1px"}
       >
         <Image width={"65px"} height={"65px"} alt="logo" src={imagemLogo} />
         <Text
           fontSize="1xl"
           textAlign={"center"}
-          width={"100%"}
+          // width={"100%"}
           fontFamily={"inherit"}
-          fontWeight={400}
+          fontWeight={300}
           lineHeight={"1.25rem"}
           textTransform={"uppercase"}
+          width={"14rem"}
         >
           Radiola Discos
         </Text>
@@ -309,7 +311,7 @@ function Header({ setGender, setArtist }) {
             variant={"solid"}
             color={"white"}
             bg={"black"}
-            border={"solid white 1px"}
+            // border={"solid white 1px"}
             _hover={{
               color: "lightgrey",
               border: "solid grey 1px",
